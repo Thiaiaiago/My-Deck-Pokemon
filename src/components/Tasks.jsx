@@ -1,4 +1,5 @@
-import { ChevronRightIcon, Trash, TrashIcon } from "lucide-react";
+import { ChevronRightIcon, TrashIcon } from "lucide-react";
+import PropTypes from "prop-types";
 
 function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
   return (
@@ -26,5 +27,17 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
     </ul>
   );
 }
+
+Tasks.propTypes = {
+  tasks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      title: PropTypes.string.isRequired,
+      isCompleted: PropTypes.bool,
+    })
+  ).isRequired,
+  onTaskClick: PropTypes.func.isRequired,
+  onDeleteTaskClick: PropTypes.func.isRequired,
+};
 
 export default Tasks;

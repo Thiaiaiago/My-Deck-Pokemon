@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 function AddTask({ onAddTaskSubmit }) {
   const [title, setTitle] = useState("");
@@ -38,5 +39,8 @@ function AddTask({ onAddTaskSubmit }) {
     </div>
   );
 }
+AddTask.propTypes = {
+  onAddTaskSubmit: PropTypes.func.isRequired,
+};
 
 export default AddTask;
